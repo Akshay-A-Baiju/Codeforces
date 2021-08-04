@@ -29,7 +29,7 @@ using namespace std;
 #define print_map(mp)       for (auto &pr: mp) { cout<<pr.first<<" "<<pr.second<<endl; }
 #define sync                ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 const int M = 1e8;	    //needed 6 digit precision, therefore multiplying all ropes, hi, lo by M (to avoid precision errors of double), then dividing the answer by 6 using setprecision(6)
-double eps=1e-6;
+//double eps=1e-6;
 
 bool possible(ll l,vll &rope, ll &k)
 {
