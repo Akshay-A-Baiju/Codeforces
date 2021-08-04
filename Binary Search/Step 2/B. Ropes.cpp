@@ -41,6 +41,7 @@ bool possible(ll l,vll &rope, ll &k)
 
 void solve()
 { 
+    //advanced binary search using predicate function
     ll n,k;
     cin>>n>>k;
     vll rope(n);
