@@ -1,6 +1,6 @@
 // Author : Akshay A Baiju
 // Problem link : https://codeforces.com/edu/course/2/lesson/6/1/practice/contest/283911/problem/D
-// Problem tags : lower_bound
+// Problem tags : lower bound, upper bound
 // TC : O(k*logn)
 // SC : O(n)
 
@@ -12,7 +12,9 @@ using namespace std;
 #define vll                 vector <ll>
 #define vvll                vector <vll>
 #define pii                 pair <int,int>
+#define ppi                 pair <int,pii>
 #define pll                 pair <ll,ll>
+#define ppl                 pair <ll,pll>
 #define ms(a,x)             memset (a,x,sizeof(a))
 #define rep(i,a,n)          for (int i=a;i<n;i++)
 #define rrep(i,n,a)         for (int i=n;i>=a;i--)
@@ -31,7 +33,7 @@ using namespace std;
 const int M = 1e9+7;
 
 void solve()
-{    
+{   
     ll n,k;
     cin>>n;
     vll v(n);
@@ -40,14 +42,44 @@ void solve()
     cin>>k;
     while (k--)
     {
-        ll start,end;
-        cin>>start>>end;
-        ll lo=lower_bound(all(v),start)-v.begin();
-        ll hi=lower_bound(all(v),end+1)-v.begin()-1;
-        if (hi==n)      //lower_bound does not exist, then hi should be the last index of vector
-            hi--;
-        ll ans=hi-lo+1;
-        cout<<ans<<" ";
+        ll l,r,start,end,ans;
+        cin>>l>>r;
+        //lower bound of l
+        ll lo=0,hi=n-1;
+        while (hi-lo>1)
+        {
+            ll mid=(hi+lo)/2;
+            if (v[mid]<l)
+                lo=mid+1;
+            else
+                hi=mid;
+        }
+        if (v[lo]>=l)
+            start=lo;
+        else if (v[hi]>=l)
+            start=hi;
+        else
+            start=n;
+        //upper bound of r - 1
+        lo=0;hi=n-1;
+        while (hi-lo>1)
+        {
+            ll mid=(hi+lo)/2;
+            if (v[mid]<=r)
+                lo=mid+1;
+            else
+                hi=mid;
+        }
+        if (v[lo]>r)
+            end=lo-1;
+        else if (v[hi]>r)
+            end=hi-1;
+        else if (v[hi]==r)
+            end=hi;
+        else
+            end=n-1;    //to counter cases when l and r both lies outside the vector range, hence ans = 0 = (n-1) - n + 1
+        ans=end-start+1;
+        cout<<ans<<" ";      
     }
 }
 
@@ -62,6 +94,6 @@ int main()
         solve();
         cout<<endl;
     }
-    cerr << '\n'<<"Time (in s): " << double(clock() - clk) * 1.0 / CLOCKS_PER_SEC << '\n';
+    //cerr << '\n'<<"Time (in s): " << double(clock() - clk) * 1.0 / CLOCKS_PER_SEC << '\n';
     return 0;
 }
