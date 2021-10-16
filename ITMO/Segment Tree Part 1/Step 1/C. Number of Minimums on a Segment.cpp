@@ -86,9 +86,7 @@ void build_sgtree(vll &v, ll ind, ll lo, ll hi)
     ll mid=(hi+lo)/2;
     build_sgtree(v,2*ind+1,lo,mid);
     build_sgtree(v,2*ind+2,mid+1,hi);
-    pll left=sgtree[2*ind+1];
-    pll right=sgtree[2*ind+2];
-    sgtree[ind]=calculate_min(left,right);
+    sgtree[ind]=calculate_min(sgtree[2*ind+1],sgtree[2*ind+2]);
 }
 
 void update(ll ind, ll lo, ll hi, ll pos, ll val)
