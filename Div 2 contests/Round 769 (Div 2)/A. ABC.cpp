@@ -17,28 +17,28 @@ using namespace std;
 
 #define ll                  long long
 #define ull                 unsigned long long
-#define ld		    		      long double
+#define ld		    long double
 #define vi                  vector <int>
 #define vll                 vector <ll>
 #define vvll                vector <vll>
-#define vbool				        vector <bool>
+#define vbool		    vector <bool>
 #define pii                 pair <int,int>
 #define pll                 pair <ll,ll>
 #define vpll                vector <pll>
 #define rep(i,a,n)          for (int i=a;i<n;i++)
 #define rrep(i,n,a)         for (int i=n;i>=a;i--)
 #define fill1(a,x)          for (auto &it: a) it=x;
-#define fill2(a,x)	    	  for (auto &v: a) { for (auto &it: v) it=x; }
+#define fill2(a,x)	    for (auto &v: a) { for (auto &it: v) it=x; }
 #define pb                  push_back
 #define pf                  push_front
 #define ppb                 pop_back
 #define ff                  first
 #define ss                  second
 #define ins                 insert
-#define YY		    		      cout<<"YES"
-#define NN		    		      cout<<"NO"
+#define YY		    cout<<"YES"
+#define NN		    cout<<"NO"
 #define all(v)              v.begin(), v.end()
-#define allr(v)		    	    v.rbegin(), v.rend()
+#define allr(v)		    v.rbegin(), v.rend()
 #define desc()              greater <ll>()
 #define endl                "\n"   //not to be used in interactive problems
 #define random(l,r,T)    	  uniform_int_distribution<T>(l,r)(rng)
